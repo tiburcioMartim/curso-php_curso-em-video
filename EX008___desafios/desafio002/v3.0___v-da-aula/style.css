@@ -33,6 +33,7 @@ header > h1 {
 
 
 main, section, article {
+    text-align: center;
     background-color: white;
     padding: 15px;
     margin-bottom: 20px;
@@ -53,7 +54,7 @@ footer {
 p {
     text-align: justify;
     line-height: 1.5em;
-    color: white
+    /* color: white */
 }
 
 h2, h3, h4 {

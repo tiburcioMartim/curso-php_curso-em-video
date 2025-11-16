@@ -11,9 +11,16 @@
         <h1>Gerador de Número Aleatório</h1>
     </header>
     <section>
-        <?php //Gerar um número aleatório entre 0 e 100.
-        
+        <?php 
+            $min = 0;
+            $max = 100;
+            $result = mt_rand($min, $max);
+
+            echo "<p>Gerando um número aleatório entre $min e $max:<br></p>";
+            echo "O número gerado é: <strong>$result</strong><br><br>";
         ?>
+        <button onclick="javascript:document.location.reload()">Recarregar</button>
     </section>
 </body>
 </html>
+
