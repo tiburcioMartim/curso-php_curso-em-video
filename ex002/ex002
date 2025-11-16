@@ -1,0 +1,9 @@
+<?php 
+    /* 
+        <script language="php"> </script>;
+        <?php ?>     Super tag PHP
+        <? ?>        Short open tag
+        <% %>        ASP tag
+        <?= ?>       Short tag PHP
+    */
+?>
