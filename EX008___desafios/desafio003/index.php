@@ -11,9 +11,11 @@
         <h1>Conversor de Moedas v1.0</h1>
     </header>
     <section>
-        <?php //conversor de moedas v1.0, converter real para dolar, exibir a cotação do dollar.
-        
-        ?>
+        <form action="result.php" method="get">
+            <label for="real">Digite o valor para converter:</label>
+            <input type="number" step="any" name="real" id="id-real" required>
+            <input type="submit" value="Converter">
+        </form>        
     </section>
 </body>
 </html>
