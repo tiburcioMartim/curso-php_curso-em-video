@@ -21,7 +21,8 @@
             echo "Seu sucessor é: <strong>$sucessor</strong> <br><br>";
         ?>
         <!-- Volta uma página pelo histórico -->
-        <button onclick="history.back()">Voltar</button>
+        <!-- <button onclick="history.back()">Voltar</button> -->
+        <!-- <button onclick="history.go(-1)">Voltar</button> -->
 
         <!-- Busca o arquivo index.html -->
         <button onclick="javascript:window.location.href='index.html'">Voltar</button>
