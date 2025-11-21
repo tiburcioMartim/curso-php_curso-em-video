@@ -11,9 +11,14 @@
         <h1>Analisador de Número Real</h1>
     </header>
     <section>
-        <?php //Analisador de número real, exibe a parte inteira de um número real e exibe a parte fracionária do número.
-        
-        ?>
+        <form action="analisador-de-numero.php" method="get">
+            <label for="analisar">Analisar:</label>
+            <input type="number" name="analisar" id="id-analisar" step="any" required>
+
+            <!-- Quando clicado, dispara a ação definida no atributo action do formulário -->
+            <!-- Geralmente uma requisição HTTP POST ou GET -->
+            <input type="submit" value="Enviar">
+        </form>
     </section>
 </body>
 </html>
