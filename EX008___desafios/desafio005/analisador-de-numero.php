@@ -14,16 +14,18 @@
         <?php //Analisador de número real, exibe a parte inteira de um número real e exibe a parte fracionária do número.
 
             //Nesse caso não há necessidade de usar a conversão de número para string, porque ao usuário informar o número, ele é convertido automáticamente para string.
-            $numberIn = $_GET['analisar'];
+            //O valor de coalesencia nula é para o caso de enviar o formulário sem dados, ele irá preencher com o valor 0
+            $numberIn = $_GET['analisar'] ?? 0;
+            $int = (int) $numberIn;
+            $frac = $numberIn - $int;
 
-            //Separando a string com a função explode(), ela usa um separador para fatiar a string em varias posições.
-            $numberPieces = explode('.', $numberIn);
-
-            echo "O número analisado é: <strong>$numberIn</strong> <br>";
-            echo "A parte inteira é: <strong>$numberPieces[0]</strong> <br>";
-            echo "A parte decimal é: <strong>$numberPieces[1]</strong> <br><br>";
+            echo "Analisando o número <strong>" . number_format($numberIn, 3, ",", ".") . "</strong> informado pelo usuário.<br>";
+            
+            echo "<ul><li>A parte inteira é: <strong>$int</strong></li>";
+            echo "<li>A parte decimal é: <strong>$frac</strong></li></ul>";
         ?>
-        <button type="button" onclick="javascript:document.location.href='index.php'">Voltar</button>
+        <button onclick="javascript:history.go(-1)">Voltar</button>
+        <!-- <button type="button" onclick="javascript:document.location.href='index.php'">Voltar</button> -->
     </section>
 </body>
 </html>

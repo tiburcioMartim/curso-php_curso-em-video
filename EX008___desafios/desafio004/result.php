@@ -21,11 +21,10 @@
             //URL da API
             $url = 'https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarPeriodo(dataInicial=@dataInicial,dataFinalCotacao=@dataFinalCotacao)?@dataInicial=\''. $inicio .'\'&@dataFinalCotacao=\''. $fim .'\'&$top=1&$orderby=dataHoraCotacao%20desc&$format=json&$select=cotacaoCompra,dataHoraCotacao';
 
-
-
-
-
-
+            
+            
+            
+            
             //json_decode() | Converte JS objt em PHP objt | true return array | void return object
             //file_get_contents() | Ler todo o conteúdo de um arquivo ou uma URL; Retornar uma única string
             $dados = json_decode(file_get_contents($url), true);
@@ -33,7 +32,7 @@
             
             //$dados["value"][0]["cotacaoCompra"] | Acessando o dado através do vetor
             $cotacao = $dados["value"][0]["cotacaoCompra"];
-
+            
 
             //Receber valor informado pelo usuário
             $real = $_GET["real"];
@@ -54,7 +53,7 @@
             //numfmt_create()
             //Retorna uma instância da classe NumberFormatter (do módulo Intl)
             //Formata números de forma sensível à localidade (idioma, país, etc.) e ao estilo desejado (moeda, porcentagem, decimal, científico, etc.).
-            $padrao = numfmt_create("pt_BR", NumberFormatter::CURRENCY); 
+            $padrao = numfmt_create("pt_BR", NumberFormatter::CURRENCY);
 
             
             //numfmt_format_currency()

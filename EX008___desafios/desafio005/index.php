@@ -13,7 +13,7 @@
     <section>
         <form action="analisador-de-numero.php" method="get">
             <label for="analisar">Analisar:</label>
-            <input type="number" name="analisar" id="id-analisar" step="any" required>
+            <input type="number" name="analisar" id="id-analisar" step="0.001" required>
 
             <!-- Quando clicado, dispara a ação definida no atributo action do formulário -->
             <!-- Geralmente uma requisição HTTP POST ou GET -->
