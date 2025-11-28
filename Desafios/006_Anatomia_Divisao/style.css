@@ -227,3 +227,53 @@ input[type=radio] + label, input[type=checkbox] + label {
     font-size: 1em;
     background-color: rgba(0, 0, 0, 0);
 }
+
+.estrutura-da-divisao-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    height: auto;
+    width: 80%;
+    margin: 0 auto;
+    font-size: 3rem;
+}
+
+/* Estilos básicos para visualizar os itens do grid */
+.grid-item {
+    /* background-color: #e6e6e6; */
+    color: rgb(0, 0, 0);
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.resto {
+    text-decoration: underline;
+}
+
+.trace {
+    background-color: #15142b;
+    position: absolute;
+}
+
+.top {
+    top: 0;
+}
+
+.right {
+    right: 0;
+}
+
+.horizontal {
+    width: 100%;
+    height: 3px;
+}
+
+.vertical {
+    width: 3px;
+    height: 100%;
+}
