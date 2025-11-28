@@ -3,52 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anatomia de uma divisão</title>
+    <title>Salário</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <?php //capturar variáveis | Lógica
-        $dividendo = $_GET['dividendo']??0;
-        $divisor = $_GET['divisor']??0;
-        $resto = $dividendo % $divisor;
-        $quociente = $dividendo / $divisor;
+    <?php //API salário mínimo
+        $url = 'https://api.bcb.gov.br/dados/serie/bcdata.sgs.1619/dados/ultimos/1?formato=json';
+        
     ?>
-    
+
+    <?php //Salário | Lógica
+        $padrao = numfmt_create('pt-br', NumberFormatter::CURRENCY);
+        $salario = $_GET['salario']??0;
+        $salario_fmt = numfmt_format_currency($padrao, $salario, "BRL");
+        $calc_salario = $salario / 1380; //puxar salário mínimo por API == 1.449
+        $qt_sal_min = (int)$calc_salario;
+        $calc_resto = numfmt_format_currency($padrao, $salario - (1380 * $qt_sal_min), 'BRL');
+    ?>
+
     <main>
-        <h1>Anatomia de uma divisão</h1>
+        <h1>Informe seu salário</h1>
         <form action="<?php $_SERVER['PHP_SELF'];?>" method="get">
-            <label for="dividendo">Dividendo:</label>
-            <input type="number" name="dividendo" id="id-dividendo" value="<?=$dividendo?>" step="any" required>  
-            <label for="divisor">Divisor:</label>
-            <input type="number" name="divisor" id="id-divisor" value="<?=$divisor?>" step="any" required> 
-            <input type="submit" value="Analisar">            
+            <label for="salario">Salário (R$)</label>
+            <input type="number" name="salario" id="id-salario" value="" step="any"> 
+            <p>Considerando o salário mínimo de <strong><?=$salario_fmt?></strong></p>
+            <input type="submit" value="Calcular">          
         </form>
     </main>
 
-    <section >
-        <h2>Estrutura da Divisão</h2>
-        <div class="estrutura-da-divisao-container">
-            <div class="grid-item">
-                <div class="trace vertical right"></div>
-                <?=$dividendo?>
-            </div>
-            
-            <div class="grid-item">
-                <?=$divisor?>
-            </div>
-            
-            <div class="grid-item resto">
-                <?=$resto?>
-                <div class="trace vertical right"></div>
-            </div>
-
-            <div class="grid-item">
-                <?=(int)$quociente?>
-                <div class="trace horizontal top "></div>
-            </div>
-        </div>
+    <section>
+        <h2>Resultado Final</h2>
+        <?php 
+            if ($qt_sal_min > 1) {
+                echo "<p>Quem recebe um salário de $salario_fmt ganha <strong>$qt_sal_min salários mínimos</strong> + $calc_resto.</p>";
+            } else {
+                echo "<p>Quem recebe um salário de $salario_fmt ganha <strong>$qt_sal_min salário mínimo</strong> + $calc_resto.</p>";
+            }
+        ?>
     </section>
 </body>
-
 </html>
