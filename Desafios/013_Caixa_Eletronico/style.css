@@ -131,6 +131,10 @@ ul > li::marker {
     color: #372991;
 }
 
+li {
+    margin: 5px 0;
+}
+
 /* ELEMENTOS DE FORMULÁRIO */
 
 form {
